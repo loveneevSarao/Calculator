@@ -30,7 +30,7 @@ namespace Calculator
         private void C_Click(object sender, EventArgs e)
         {
             textBox_result.Clear();
-            //textBox_result.Text = "0";
+            textBox_result.Text = "0";
         }
 
         //will clear everyting from the whole content
@@ -100,7 +100,8 @@ namespace Calculator
                 //Power
                 //edit this so it uses the second number as a power
                 case "x^a":
-                    double power = Math.Pow(result, 3);
+                    //int secondVal;
+                    double power = Math.Pow(result, 5);
                     textBox_result.Text = power.ToString();
                     break;
 
@@ -112,13 +113,37 @@ namespace Calculator
 
                 //Convert To Binary
                 case "Convert To Binary":
-                    double toBinary = Convert.ToString();  
-                    //textBox_result.Text = sqrt.ToString();
+                    
+                    int input = int.Parse(textBox_result.Text);
+                    textBox_result.Text = ConvertToBinary(input);
                     break;
 
+                //From Binary to Integer
+                case "Integer from Binary":
+                    textBox_result.Text = ConvertToInteger(textBox_result.Text);
+                    break;
+         
                 default:
                     break;
             }
         }
+
+        public string ConvertToBinary(int input)
+        {
+            string binaryResult = "";
+            while (input >= 1)
+            {
+                double remainder = input % 2;
+                binaryResult = remainder + binaryResult;
+                input = input / 2;
+            }
+            return binaryResult;
+        }
+        public string ConvertToInteger(string binaryInput)
+        {
+            var result = Convert.ToInt32(binaryInput, 2).ToString();
+            return result;
+        }
+
     }
 }

@@ -217,8 +217,9 @@
             this.decimalBinary.Name = "decimalBinary";
             this.decimalBinary.Size = new System.Drawing.Size(205, 85);
             this.decimalBinary.TabIndex = 18;
-            this.decimalBinary.Text = "Decimal from Binary";
+            this.decimalBinary.Text = "Integer from Binary";
             this.decimalBinary.UseVisualStyleBackColor = true;
+            this.decimalBinary.Click += new System.EventHandler(this.Operator_Click);
             // 
             // squareRoot
             // 
